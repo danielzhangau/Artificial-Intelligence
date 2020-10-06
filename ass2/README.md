@@ -53,5 +53,42 @@ Example input files for you to test your solver on. You should make sure that yo
 A template for you to write your solution. To make sure your code is graded correctly, do not rename this file.
 
 
+### Start plan:
+PRM, EST or PRT
 
+##### Components:
+
+1. Sampling Strategy
+- generate_sample() -> RobotConfig
+- start with uniform random
+- improve by sampling 1 link at a time
+- generate_sample_using_A()  
+  generate_sample_using_B()
+
+2. Interpolation
+- interpolate_path(RobotConfig 1, RobotConfig 2) --> [RobotConfig s.t. all <= 1 primitive step]
+- validate using method in tester
+
+3. Collision Check
+- collision(RobotConfig) --> T/F  
+  -> look at tester.py
+- path_collision(RobotConfig 1, RobotConfig 2) --> T/F
+
+4. Connection Strategy
+- start with testing everything
+- maximum distance to check
+- data structure to store samples  
+  start with []
+- [[] for GP1, [] for GP2]
+- [[] EE1 @ GP1, [] EE2 @ GP1, [] EE1 @ GP2, [] EE2 @ GP2]
+
+5. Search Strategy  
+```
+While True:  
+    add to graph(+20 nodes)  
+      
+    search graph  
+    if found:  
+        break
+```
 
