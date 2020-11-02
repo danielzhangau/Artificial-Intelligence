@@ -1,13 +1,12 @@
 gamma: 0.95
-method: q-learning
-benchmark: -13
+method: sarsa
+benchmark: -28
 time_limit: 30
 initial_seed: 1098
-########
-##    F#
-#  ##  #
-##  # W#
-#  ## W#
-#  #  W#
-## ^ ###
-########
+#######
+##   F#
+##    #
+#  # W#
+#  # W#
+## ^ ##
+#######
