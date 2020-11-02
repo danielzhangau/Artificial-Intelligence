@@ -18,7 +18,7 @@ Use this script to test whether your output files are valid solutions. You shoul
 
 COMP3702 2020 Assignment 3 Support Code
 
-Last updated by njc 02/10/20
+Last updated by njc 13/10/20
 """
 
 DEBUG_MODE = False      # set to True to disable time limit checks
@@ -124,6 +124,8 @@ def main(arglist):
             else:
                 print("/!\\ get_offline_policy( ) caused crash during evaluation")
             sys.exit(mark)
+        if not WINDOWS and not DEBUG_MODE:
+            signal.alarm(0)
         r = state.apply_move(action, new_seed)
         total_reward += r
         if r == game_map.goal_reward or r == game_map.game_over_cost:

@@ -290,7 +290,7 @@ class LaserTankMap:
         Apply a player move to the map.
         :param move: self.MOVE_FORWARD, self.TURN_LEFT, self.TURN_RIGHT or self.SHOOT_LASER
         :param seed: random seed used by tester to generate consistent random outcomes
-        :return: True if move was successful, false if move could not be completed
+        :return: the reward received for performing this action (a real number)
         """
         if seed is not None:
             random.seed(a=seed)
@@ -329,7 +329,7 @@ class LaserTankMap:
                     next_y = self.player_y + 1
                     next_x = self.player_x - 1
                 elif r < self.t_success_prob + (self.t_error_prob * (2 / 5)):
-                    next_y = self.player_y - 1
+                    next_y = self.player_y + 1
                     next_x = self.player_x + 1
                 elif r < self.t_success_prob + (self.t_error_prob * (3 / 5)):
                     next_y = self.player_y
@@ -808,10 +808,3 @@ def main(arglist):
 
 if __name__ == '__main__':
     main(sys.argv[1:])
-
-
-
-
-
-
-

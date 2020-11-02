@@ -1,14 +1,15 @@
 import sys
+import platform
 import time
 import traceback
 from laser_tank import LaserTankMap
 from solver import Solver
 
 # automatic timeout handling will only be performed on Unix
-try:
+if platform.system() != 'Windows':
     import signal
     WINDOWS = False
-except:
+else:
     WINDOWS = True
 
 """
@@ -19,9 +20,10 @@ modifying this file directly.
 
 COMP3702 2020 Assignment 1 Support Code
 
-Last updated by njc 01/10/20
+Last updated by njc 13/10/20
 """
 
+DEBUG_MODE = False      # set to True to disable time limit checks
 TOLERANCE = 0.01
 
 ACTION_LOOKUP = {LaserTankMap.MOVE_FORWARD: 0,
@@ -45,9 +47,8 @@ def main(arglist):
     """
 
     if len(arglist) != 1:
-        print("Running this file visualises the path your code produces for the given map file. "
-              "Set mode to be 'value', 'policy' or 'episode'. MCTS can only be used in 'episode' mode.")
-        print("Usage: policy_visualiser.py [map_file_name] [mode]")
+        print("Running this file visualises the path your code produces for the given map file. ")
+        print("Usage: policy_visualiser.py [map_file_name]")
         return
 
     input_file = arglist[0]
@@ -119,7 +120,8 @@ def main(arglist):
             else:
                 print("/!\\ get_offline_policy( ) caused crash during evaluation")
             sys.exit(mark)
-        print('move: ' + str(action))   # !!! debug
+        if not WINDOWS and not DEBUG_MODE:
+            signal.alarm(0)
         r = state.apply_move(action, new_seed)
         state.render()
         total_reward += r
