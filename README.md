@@ -15,10 +15,12 @@ Uniform-cost search expands the least cost node (regardless of heuristic), and b
 - g(n) is the cost of moving to a node n
 - h(n) is the estimated cost that it will take to get to the final goal state from if we were to go to n
 The f(n) used in uniform-cost search
-> f(n) = g(n)
-The f(n) used in best-first search (A* is an example of best-first search)
+> f(n) = g(n)  
+
+The f(n) used in best-first search (A* is an example of best-first search)  
 > f(n) = g(n) + h(n)
-Each of these functions is evaluating the potential expansion nodes, not the current node when traversing the tree looking for an n that is a goal state
+
+Each of these functions is evaluating the potential expansion nodes, not the current node when traversing the tree looking for an n that is a goal state  
 ## Assignment 2 - Robot arm
 Configuration Space
 ## Assignment 3 - LaserTank MDP
