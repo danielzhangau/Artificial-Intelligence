@@ -1,5 +1,7 @@
 # Assignment 2 Support Code
 
+## Canadarm - robot arm motion planner
+
 This is the support code for COMP3702 2020 Assignment 2.
 
 The following files are provided:
@@ -52,6 +54,8 @@ Example input files for you to test your solver on. You should make sure that yo
 
 A template for you to write your solution. To make sure your code is graded correctly, do not rename this file.
 
+Useful link on PRM:                                                
+http://www.cs.columbia.edu/~allen/F15/NOTES/Probabilisticpath.pdf 
 
 ### Start plan:
 PRM, EST or PRT

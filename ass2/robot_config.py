@@ -93,8 +93,8 @@ def make_robot_config_from_ee1(x, y, angles, lengths, ee1_grappled=False, ee2_gr
     :param y: vertical position of end 1
     :param angles: list angles of each joint starting from end 1 (in radians)
     :param lengths: list of lengths of each segment
-    :param ee1_grappled:
-    :param ee2_grappled:
+    :param ee1_grappled: whether the robot is grappled at end 1
+    :param ee2_grappled: whether the robot is grappled at end 2
     :return: RobotConfig instance
     """
     return RobotConfig(lengths, ee1x=x, ee1y=y, ee1_angles=angles, ee1_grappled=ee1_grappled, ee2_grappled=ee2_grappled)
@@ -107,51 +107,11 @@ def make_robot_config_from_ee2(x, y, angles, lengths, ee1_grappled=False, ee2_gr
     :param y: vertical position of end 2
     :param angles: list angles of each joint starting from end 2 (in radians)
     :param lengths: list of lengths of each segment
-    :param ee1_grappled:
-    :param ee2_grappled:
+    :param ee1_grappled: whether the robot is grappled at end 1
+    :param ee2_grappled: whether the robot is grappled at end 2
     :return: RobotConfig instance
     """
     return RobotConfig(lengths, ee2x=x, ee2y=y, ee2_angles=angles, ee1_grappled=ee1_grappled, ee2_grappled=ee2_grappled)
-
-
-def make_robot_config_from_ee1_double(x, y, angles, lengths):
-    return RobotConfig(lengths, ee1x=x, ee1y=y, ee1_angles=angles, ee1_grappled=True, ee2_grappled=True)
-
-
-def make_robot_config_from_ee2_double(x, y, angles, lengths):
-    return RobotConfig(lengths, ee2x=x, ee2y=y, ee2_angles=angles, ee1_grappled=True, ee2_grappled=True)
-
-
-def make_ee1_duplicate(rc):
-    x, y = rc.points[-1]
-    angles = rc.ee2_angles
-    lengths = rc.lengths[:]
-    lengths.reverse()
-    return RobotConfig(lengths, ee1x=x, ee1y=y, ee1_angles=angles, ee1_grappled=True)
-
-
-def make_ee1_duplicate_bridge(rc):
-    x, y = rc.points[-1]
-    angles = rc.ee2_angles
-    lengths = rc.lengths[:]
-    lengths.reverse()
-    return RobotConfig(lengths, ee1x=x, ee1y=y, ee1_angles=angles, ee1_grappled=True, ee2_grappled=True)
-
-
-def make_ee2_duplicate(rc):
-    x, y = rc.points[0]
-    angles = rc.ee1_angles
-    lengths = rc.lengths[:]
-    lengths.reverse()
-    return RobotConfig(lengths, ee2x=x, ee2y=y, ee2_angles=angles, ee2_grappled=True)
-
-
-def make_ee2_duplicate_bridge(rc):
-    x, y = rc.points[0]
-    angles = rc.ee1_angles
-    lengths = rc.lengths[:]
-    lengths.reverse()
-    return RobotConfig(lengths, ee2x=x, ee2y=y, ee2_angles=angles, ee1_grappled=True, ee2_grappled=True)
 
 
 def write_robot_config_list_to_file(filename, robot_config_list):
