@@ -88,5 +88,5 @@ Do not rename this file or the Solver class.
 
 **testcases**
 
-A set of testcases for you to evaluate your solution. Note that the testcases contain only LAND, WATER, OBSTACLE, ICE, TELEPORT and FLAG symbols.
+A set of testcases for you to evaluate your solution.
 
