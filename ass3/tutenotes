@@ -1,0 +1,68 @@
+- Assignment is indexed from top left
+V(s) = max_a R(s,a) + gamma* sum_s' T(s,a,s') V(s')
+V(s) = max_a sum_s' T(s,a,s')[R(s,a,s')+gamma*V(s')]
+
+- Only iterate over the probability of states you could end up in (i.e adjacent states)
+
+Set all values to zero
+t=0
+While True
+    max delta = 0
+    copy v so vt is the old values not updated
+    for s in state_space
+        Vt+1(s)=max_a [sum_s' T(s,a,s)[R(s,a,s')+gamma*Vt(s')]
+        if vt-vt+1 > max delta
+            max delta = vt-vt+1
+    if max delta < epsilon
+        break
+
+T(s,a,s')
+
+returns: [(state, prob), (state,prob)]
+A list of tuples where each tuple is the possible state and its probability
+
+###############
+Policy iteration
+
+Policy evaluation - compute the value for an arbitary policy
+simialr to value iter with no max a
+
+        invalid = [self.game_map.WATER_SYMBOL, self.game_map.OBSTACLE_SYMBOL]
+
+        while True:
+            # make this a deep copy
+            old_v = values
+            max_delta = 0
+            for i in range(len(values)):
+                # Row
+                for j in range(len(values[i])):
+                    # Column
+                    if self.game_map.grid_data[i + 1][j + 1] not in invalid:
+
+                        for k in range(len(values[i][j])):
+                            # Heading
+                            action_value_set = set()
+                            for a in self.game_map.MOVES:
+                                alt_act = [p for p in self.game_map.MOVES if p != a]
+                                inst = self.game_map.make_clone()
+                                state = [i + 1, j + 1, k]
+                                [x, y, h] = self.fake_move(state, a, inst)
+                                sum = self.game_map.t_success_prob * values[x - 1][y - 1][h]
+                                for t in alt_act:
+                                    inst = self.game_map.make_clone()
+                                    [x, y, h] = self.fake_move(state, t, inst)
+                                    sum += (self.game_map.t_error_prob / (len(self.game_map.MOVES) - 1)) * \
+                                           values[x - 1][y - 1][h]
+                                action_value_set.add(sum)
+                            values[i][j][k] = self.game_map.gamma * max(action_value_set)
+                            indx = action_value_set.index(max(action_value_set))
+                            policy[i][j][k] = self.game_map.MOVES(indx)
+                        if abs(old_v[i][j][k]) - abs(values[i][j][k]) > max_delta:
+                            max_delta = abs(old_v[i][j][k]) - abs(values[i][j][k])
+            if max_delta < self.game_map.epsilon:
+                break
+        self.values[self.game_map.flag_x - 1][self.game_map.flag_y - 1][:] = self.game_map.goal_reward
+
+        # store the computed values and policy
+        self.values = values
+        self.policy = policy

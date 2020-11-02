@@ -272,7 +272,7 @@ class LaserTankMap:
                 tpy, tpx = (None, None)
                 for i in range(self.y_size):
                     for j in range(self.x_size):
-                        if self.grid_data[i][j] == self.TELEPORT_SYMBOL and i != next_y and j != next_x:
+                        if self.grid_data[i][j] == self.TELEPORT_SYMBOL and (i != next_y or j != next_x):
                             tpy, tpx = (i, j)
                             break
                     if tpy is not None:
