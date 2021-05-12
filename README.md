@@ -35,6 +35,10 @@ The f(n) used in best-first search (A* is an example of best-first search)
 > f(n) = g(n) + h(n)
 
 Each of these functions is evaluating the potential expansion nodes, not the current node when traversing the tree looking for an n that is a goal state  
+
+<p align="center">
+  <img width="600" src="https://github.com/danielzhangau/Artificial-Intelligence/blob/master/ass1/laser_tank.gif" />
+</p>
 ## [Assignment 2 - Robot arm](https://github.com/danielzhangau/Artificial-Intelligence/tree/master/ass2)
 Configuration Space
 The robot's configuration space C is the set of all allowed (possible) robot configurations. The dimension is the number of parameter necessary to uniquely specify configuration which depends on the number of segments n because it tells how many rotational joints in the robot. For the robotic arm, we require parameters {eex, eey; -180 < a1 < 180, -165 < a2, …, an < 165, minlength < l1, l2, …, ln < maxlength} to completely specify the position of the arm in the world.  
@@ -42,6 +46,11 @@ The free space F ⊆ C is the portion of the free space which is collision-free.
 
 The method I used for searching is Probabilistic Road Maps (PRM). The idea is to take random samples from C, declare them as vertices if in F, try to connect nearby vertices with local planner. We start with uniform sampling to generate sample points in C, then try to make into a robot configuration to determine whether they are valid. If valid and not collides either with an obstacle or with itself, it will be added to the node list. Then the distance between the sample point and other nodes in the list will be checked. When the distance is less than a certain limit, these two nodes will add to each other to become neighbours, indicating that they are connected in the search tree. Repeat this until N samples are created, and then apply a breadth-first search algorithm to find a path from the initial state to the target state. In order to check whether the path between two sample points is valid, the path will be discretised. It will be divided into several smaller segments, and for each segment, verification checks will be applied to ensure that there are no invalid configurations in the path. Verification inspection includes self-collision inspection, obstacle collision inspection and boundary inspection.  
 Once the neighbours are connected, we perform a Breath First Search (BFS) algorithm to find a list of configurations that form a path between the initial and the target. In order to meet the requirement that the primitive step is less than 0.001 rad, we need to interpolate between the configurations in the returned list.
+
+<p align="center">
+  <img width="520" src="ass2/robot_arm_code.gif" />
+  <img width="400" src="ass2/robot_arm.gif" />
+</p>
 
 ## [Assignment 3 - LaserTank MDP](https://github.com/danielzhangau/Artificial-Intelligence/tree/master/ass3)
 some useful learning resources: https://www.youtube.com/watch?v=HEs1ZCvLH2s&ab_channel=stanfordonline Lecture 6,7,8
