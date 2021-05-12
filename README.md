@@ -6,8 +6,22 @@ The course aims to introduce the foundational concepts and methods used in the f
 - learning to act, and
 - reasoning about other agents.
 
-## Assignment 1 - LaserTank UCS/A*
-*Best-first search does not estimate how close to goal the current state is, it estimates how close to goal each of the next states will be (from the current state) to influence the path selected.*
+## [Assignment 1 - LaserTank UCS/A*](https://github.com/danielzhangau/Artificial-Intelligence/tree/master/ass1)
+[LaserTank](https://github.com/danielzhangau/Artificial-Intelligence/blob/master/ass1/COMP3702_LaserTank_desc.pdf) is an open source computer puzzle game requiring logical thinking to solve a variety of levels, originally developed by Jim Kindley in 1995. In LaserTank, a player controls a tank vehicle which can move forwards, turn clockwise and counterclockwise, and shoot a laser which can be used to interact with special map elements. The game takes place in a 2D map divided into grid cells. The player must navigate from a starting position to the flag in as few moves as possible while avoiding "game over" conditions. The game is over if the player moves into a dangerous cell (i.e. water cells or any cell in the line of fire area of an anti-tank).  
+
+Our goal is: to turn LaserTank into a search problem, you have will have to first define the following agent design components:
+- A problem state representation (state space),
+- A successor function that indicates which states can be reached from a given state (action space and transition function), and
+- A cost function (utility function); we assume that each step has a uniform cost of 1.
+
+The solver program will: (i) take a testcase filename and an output filename as arguments, (ii) find a solution to the testcase, and (iii) write the solution to an output file with the given output filename.
+It will generate a solution in the form of a comma-separated list of actions, taken from the set of move symbols defined in the supplied laser tank.py file, which are:
+  - MOVE FORWARD = 'f'
+  - TURN LEFT = 'l'
+  - TURN RIGHT = 'r'
+  - SHOOT LASER = 's'
+
+Best-first search does not estimate how close to goal the current state is, it estimates how close to goal each of the next states will be (from the current state) to influence the path selected.
 
 Uniform-cost search expands the least cost node (regardless of heuristic), and best-first search expands the least (cost + heuristic) node.
 
@@ -21,11 +35,11 @@ The f(n) used in best-first search (A* is an example of best-first search)
 > f(n) = g(n) + h(n)
 
 Each of these functions is evaluating the potential expansion nodes, not the current node when traversing the tree looking for an n that is a goal state  
-## Assignment 2 - Robot arm
+## [Assignment 2 - Robot arm](https://github.com/danielzhangau/Artificial-Intelligence/tree/master/ass2)
 Configuration Space
-## Assignment 3 - LaserTank MDP
+## [Assignment 3 - LaserTank MDP](https://github.com/danielzhangau/Artificial-Intelligence/tree/master/ass3)
 some useful learning resources: https://www.youtube.com/watch?v=HEs1ZCvLH2s&ab_channel=stanfordonline Lecture 6,7,8
-## Assignment 4 - LaserTank Q-Learning and SARSA
+## [Assignment 4 - LaserTank Q-Learning and SARSA](https://github.com/danielzhangau/Artificial-Intelligence/tree/master/ass4)
 some useful learning resources: https://www.youtube.com/watch?v=OkGFJE_XDzI&t=417s&ab_channel=%E8%8E%AB%E7%83%A6Python 莫烦python
 
 ## What I have learned:
