@@ -39,6 +39,7 @@ Each of these functions is evaluating the potential expansion nodes, not the cur
 <p align="center">
   <img width="600" src="https://github.com/danielzhangau/Artificial-Intelligence/blob/master/ass1/laser_tank.gif" />
 </p>
+
 ## [Assignment 2 - Robot arm](https://github.com/danielzhangau/Artificial-Intelligence/tree/master/ass2)
 Configuration Space
 The robot's configuration space C is the set of all allowed (possible) robot configurations. The dimension is the number of parameter necessary to uniquely specify configuration which depends on the number of segments n because it tells how many rotational joints in the robot. For the robotic arm, we require parameters {eex, eey; -180 < a1 < 180, -165 < a2, …, an < 165, minlength < l1, l2, …, ln < maxlength} to completely specify the position of the arm in the world.  
