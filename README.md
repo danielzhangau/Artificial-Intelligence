@@ -9,7 +9,7 @@ The course aims to introduce the foundational concepts and methods used in the f
 ## [Assignment 1 - LaserTank UCS/A*](https://github.com/danielzhangau/Artificial-Intelligence/tree/master/ass1)
 [LaserTank](https://github.com/danielzhangau/Artificial-Intelligence/blob/master/ass1/COMP3702_LaserTank_desc.pdf) is an open source computer puzzle game requiring logical thinking to solve a variety of levels, originally developed by Jim Kindley in 1995. In LaserTank, a player controls a tank vehicle which can move forwards, turn clockwise and counterclockwise, and shoot a laser which can be used to interact with special map elements. The game takes place in a 2D map divided into grid cells. The player must navigate from a starting position to the flag in as few moves as possible while avoiding "game over" conditions. The game is over if the player moves into a dangerous cell (i.e. water cells or any cell in the line of fire area of an anti-tank).  
 
-Our goal is: to turn LaserTank into a search problem, you have will have to first define the following agent design components:
+Our goal is: to turn LaserTank into a search problem, I will have to first define the following agent design components:
 - A problem state representation (state space),
 - A successor function that indicates which states can be reached from a given state (action space and transition function), and
 - A cost function (utility function); we assume that each step has a uniform cost of 1.
