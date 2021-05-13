@@ -55,8 +55,13 @@ Once the neighbours are connected, we perform a Breath First Search (BFS) algori
 
 ## [Assignment 3 - LaserTank MDP](https://github.com/danielzhangau/Artificial-Intelligence/tree/master/ass3)
 some useful learning resources: https://www.youtube.com/watch?v=HEs1ZCvLH2s&ab_channel=stanfordonline Lecture 6,7,8
+1. Value Iteration (VI)
+2. Policy Iteration (PI)
+
 ## [Assignment 4 - LaserTank Q-Learning and SARSA](https://github.com/danielzhangau/Artificial-Intelligence/tree/master/ass4)
 some useful learning resources: https://www.youtube.com/watch?v=OkGFJE_XDzI&t=417s&ab_channel=%E8%8E%AB%E7%83%A6Python 莫烦python
+1. Q-learning
+2. SARSA
 
 ## What I have learned:
 1.	Describe the core theoretical and conceptual frameworks, methods and practices which form the basis of artificial intelligence.
